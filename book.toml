@@ -6,8 +6,8 @@ src = "src"
 title = "LuoYuDian的个人主页"
 
 [output.html]
-git-repository-url = ""
-git-repository-icon = ""
+git-repository-url = "https://github.com/LuoYuDian/MianPage.git"
+git-repository-icon = "fa-github"
 
 [output.html.search]
 enable = false
