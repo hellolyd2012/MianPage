@@ -1,0 +1,13 @@
+[book]
+authors = ["LuoYuDian" ,"MainPage"]
+language = "zh-CN"
+multilingual = false
+src = "src"
+title = "LuoYuDian的个人主页"
+
+[output.html]
+git-repository-url = ""
+git-repository-icon = ""
+
+[output.html.search]
+enable = false
