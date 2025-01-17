@@ -80,3 +80,135 @@ h1 {
         font-size: 2rem;
     }
 } 
+
+/* 关于页面样式 */
+.about-content {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.about-section {
+    margin-bottom: 2rem;
+}
+
+.about-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+footer {
+    margin-top: 2rem;
+}
+
+footer .button-link {
+    display: inline-flex;
+}
+
+.corner-buttons {
+    position: fixed;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+}
+
+.source-link-container {
+    position: absolute;
+    left: 2rem;
+    bottom: 0;
+    pointer-events: auto;
+}
+
+.about-link-container {
+    position: absolute;
+    right: 2rem;
+    bottom: 0;
+    pointer-events: auto;
+}
+
+.source-button,
+.about-button {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 480px) {
+    .source-link-container {
+        left: 1rem;
+    }
+    
+    .about-link-container {
+        right: 1rem;
+    }
+    
+    .source-button,
+    .about-button {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+} 
+
+/* 项目页面样式 */
+.projects-content {
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+}
+
+.project-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.project-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.project-description {
+    color: #64748b;
+    margin-bottom: 1rem;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-link {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+}
+
+@media (max-width: 480px) {
+    .project-card {
+        padding: 1rem;
+    }
+} 
