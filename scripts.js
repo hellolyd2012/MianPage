@@ -33,10 +33,17 @@ class ParticleBackground {
         this.canvas = document.createElement('canvas');
         this.ctx = this.canvas.getContext('2d');
         this.particles = [];
-        this.numberOfParticles = 50;
+        this.numberOfParticles = this.getOptimalParticleCount();
         
         this.init();
         this.animate();
+    }
+
+    getOptimalParticleCount() {
+        const width = window.innerWidth;
+        if (width <= 480) return 20;
+        if (width <= 768) return 30;
+        return 50;
     }
 
     init() {
@@ -55,6 +62,19 @@ class ParticleBackground {
         for (let i = 0; i < this.numberOfParticles; i++) {
             this.particles.push(new Particle(this.canvas));
         }
+
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                this.resize();
+                const newCount = this.getOptimalParticleCount();
+                if (newCount !== this.particles.length) {
+                    this.particles = [];
+                    for (let i = 0; i < newCount; i++) {
+                        this.particles.push(new Particle(this.canvas));
+                    }
+                }
+            }, 100);
+        });
     }
 
     resize() {
@@ -74,7 +94,70 @@ class ParticleBackground {
     }
 }
 
-// 当页面加载完成时初始化背景
+class RippleEffect {
+    constructor() {
+        this.ripples = [];
+        this.isMobile = 'ontouchstart' in window;
+        this.init();
+    }
+
+    init() {
+        if (this.isMobile) {
+            document.addEventListener('touchstart', (e) => {
+                const touch = e.touches[0];
+                this.createRipple(touch.clientX, touch.clientY);
+            });
+        } else {
+            document.addEventListener('click', (e) => {
+                this.createRipple(e.clientX, e.clientY);
+            });
+        }
+    }
+
+    createRipple(x, y) {
+        const ripple = document.createElement('div');
+        ripple.className = 'ripple';
+        document.body.appendChild(ripple);
+
+        const rect = {
+            top: y - 50,
+            left: x - 50,
+        };
+        
+        ripple.style.top = `${rect.top}px`;
+        ripple.style.left = `${rect.left}px`;
+
+        const duration = this.isMobile ? 600 : 1000;
+        setTimeout(() => {
+            ripple.remove();
+        }, duration);
+    }
+}
+
+if ('loading' in document.createElement('img')) {
+    document.querySelectorAll('img').forEach(img => {
+        img.loading = 'lazy';
+    });
+}
+
+const isLowEnd = () => {
+    const memory = navigator.deviceMemory;
+    if (memory && memory <= 4) return true;
+    
+    const connection = navigator.connection;
+    if (connection && (connection.saveData || connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g')) {
+        return true;
+    }
+    
+    return false;
+};
+
 window.addEventListener('load', () => {
-    new ParticleBackground();
+    if (isLowEnd()) {
+        const background = new ParticleBackground();
+        background.numberOfParticles = Math.floor(background.numberOfParticles * 0.6);
+    } else {
+        new ParticleBackground();
+    }
+    new RippleEffect();
 });

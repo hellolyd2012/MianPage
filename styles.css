@@ -109,9 +109,126 @@ h1 {
     }
     
     h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
-} 
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .button-container {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .corner-buttons {
+        bottom: 1rem;
+    }
+
+    .source-link-container {
+        left: 1rem;
+    }
+    
+    .about-link-container {
+        right: 1rem;
+    }
+    
+    .source-button,
+    .about-button {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    .project-card {
+        padding: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .project-card h2 {
+        font-size: 1.3rem;
+    }
+
+    .project-description {
+        font-size: 0.9rem;
+    }
+
+    .project-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .project-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .skills {
+        justify-content: center;
+    }
+
+    .skill-tag {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .license-tag {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.6rem;
+    }
+
+    .ripple {
+        width: 80px;
+        height: 80px;
+    }
+
+    @keyframes ripple {
+        to {
+            transform: scale(2.5);
+        }
+    }
+}
+
+/* 针对中等尺寸设备的优化 */
+@media (min-width: 481px) and (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    .project-links {
+        flex-wrap: wrap;
+    }
+
+    .project-link {
+        flex: 1 1 auto;
+        min-width: 150px;
+    }
+
+    .corner-buttons {
+        bottom: 1.5rem;
+    }
+}
+
+/* 针对横屏手机的优化 */
+@media (max-height: 480px) and (orientation: landscape) {
+    .container {
+        padding: 1rem 2rem;
+    }
+
+    .button-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        max-width: 600px;
+    }
+
+    .corner-buttons {
+        bottom: 0.8rem;
+    }
+
+    .source-button,
+    .about-button {
+        padding: 0.5rem 1rem;
+    }
+}
 
 /* 关于页面样式 */
 .about-content {
@@ -254,4 +371,46 @@ footer .button-link {
     .project-card {
         padding: 1rem;
     }
+} 
+
+/* 鼠标点击涟漪效果 */
+.ripple {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(37, 99, 235, 0.2);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: ripple 1s ease-out;
+    z-index: 9999;
+}
+
+@keyframes ripple {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(3);
+        opacity: 0;
+    }
+} 
+
+/* 许可证标签样式 */
+.license-tag {
+    display: inline-block;
+    background-color: #e2e8f0;
+    color: #475569;
+    padding: 0.25rem 0.75rem;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.project-card .license-tag {
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover .license-tag {
+    transform: scale(1.05);
 } 
