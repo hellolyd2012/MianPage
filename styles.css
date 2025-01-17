@@ -25,6 +25,18 @@ body {
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 header {
@@ -60,6 +72,8 @@ h1 {
     text-decoration: none;
     border-radius: 8px;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .button-link:hover {
@@ -69,6 +83,24 @@ h1 {
 
 .button-link i {
     font-size: 1.2rem;
+}
+
+.button-link::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease-out, height 0.3s ease-out;
+}
+
+.button-link:active::after {
+    width: 200px;
+    height: 200px;
 }
 
 @media (max-width: 480px) {
@@ -110,6 +142,11 @@ h1 {
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
+    transition: transform 0.2s ease;
+}
+
+.skill-tag:hover {
+    transform: scale(1.1);
 }
 
 footer {
@@ -184,6 +221,12 @@ footer .button-link {
     margin-bottom: 1.5rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .project-card h2 {
