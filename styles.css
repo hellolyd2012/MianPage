@@ -66,19 +66,26 @@ h1 {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 1rem;
-    background-color: var(--primary-color);
-    color: white;
+    padding: 0.8rem 1.5rem;
     text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, var(--primary-color), #1e40af);
     border-radius: 8px;
+    font-weight: 500;
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .button-link:hover {
-    background-color: var(--hover-color);
+    background: linear-gradient(160deg, #1e40af, var(--hover-color));
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.button-link:active {
+    transform: translateY(0);
+    background: linear-gradient(135deg, var(--hover-color), #1e3a8a);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .button-link i {
@@ -413,4 +420,21 @@ footer .button-link {
 
 .project-card:hover .license-tag {
     transform: scale(1.05);
+} 
+
+/* 可以为不同类型的按钮设置不同的渐变色 */
+.source-button {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.source-button:hover {
+    background: linear-gradient(160deg, #1d4ed8, #1e40af);
+}
+
+.about-button {
+    background: linear-gradient(135deg, #4f46e5, #3730a3);
+}
+
+.about-button:hover {
+    background: linear-gradient(160deg, #3730a3, #312e81);
 } 
