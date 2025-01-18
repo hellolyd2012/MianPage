@@ -83,7 +83,7 @@ make run
 
 ## 许可证
 
-本项目采用 [MIT LICENSE](LICENSE) 开源许可证。
+本项目采用 [MIT LICENSE](https://github.com/LuoYuDian/NullPotOS/blob/main/LICENSE) 开源许可证。
 
 ## 开发者
 
