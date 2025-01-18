@@ -105,7 +105,23 @@
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                const content = await response.text();
+                let content = await response.text();
+                
+                // 替换不同类型的图片路径
+                content = content
+                    // 处理本地图片 (./images/...)
+                    .replace(/!\[(.*?)\]\(\.\/(images\/.*?)\)/g, (match, alt, src) => {
+                        return `![${alt}](../blog/${src})`;
+                    })
+                    // 处理相对路径图片 (images/...)
+                    .replace(/!\[(.*?)\]\((images\/.*?)\)/g, (match, alt, src) => {
+                        return `![${alt}](../blog/${src})`;
+                    })
+                    // 处理 GitHub 仓库图片链接
+                    .replace(/!\[(.*?)\]\(https:\/\/github\.com\/(.*?)\/blob\/(.*?)\)/g, (match, alt, repo, path) => {
+                        return `![${alt}](https://raw.githubusercontent.com/${repo}/${path})`;
+                    });
+                    
                 return content;
             } catch (error) {
                 console.error(`Error loading post ${filename}:`, error);
