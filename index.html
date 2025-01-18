@@ -17,6 +17,10 @@
         <header>
             <h1>欢迎来到 LuoYuDian 的主页</h1>
             <p class="subtitle">coding & sharing</p>
+            <div class="time-display">
+                <i class="bi bi-clock"></i>
+                <span id="currentTime"></span>
+            </div>
         </header>
         
         <nav class="button-container">
@@ -51,5 +55,28 @@
         </div>
     </div>
     <script src="scripts.js" defer></script>
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('zh-CN', {
+                hour12: false,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            const dateString = now.toLocaleDateString('zh-CN', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                weekday: 'long'
+            });
+            document.getElementById('currentTime').textContent = `${dateString} ${timeString}`;
+        }
+
+        // 初始更新
+        updateTime();
+        // 每秒更新一次
+        setInterval(updateTime, 1000);
+    </script>
 </body>
 </html>

@@ -438,3 +438,29 @@ footer .button-link {
 .about-button:hover {
     background: linear-gradient(160deg, #3730a3, #312e81);
 } 
+
+.time-display {
+    margin-top: 1rem;
+    color: #64748b;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.time-display i {
+    color: var(--primary-color);
+}
+
+@media (max-width: 480px) {
+    .time-display {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+} 
