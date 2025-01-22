@@ -1,6 +1,6 @@
 # NullPotOS Project
 
-![NullPotOSLogo](./Docs/img/logo/logo.bmp)
+![NullPotOSLogo](https://github.com/LuoYuDian/NullPotOS/blob/main/Docs/img/logo/logo.bmp)
 
 ## Project brief introduction
 
