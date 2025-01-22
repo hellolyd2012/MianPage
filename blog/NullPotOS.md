@@ -1,92 +1,104 @@
-# NullPotOS
+# NullPotOS Project
 
-![Logo](https://github.com/LuoYuDian/NullPotOS/blob/main/docs/img/logo/logo.bmp)
+![NullPotOSLogo](./Docs/img/logo/logo.bmp)
 
-###### 一个免费开源的类UNIX操作系统
+## Project brief introduction
 
-## 简介
-NullPotOS 是一个基于UNIX设计理念的操作系统，旨在提供一个轻量级、高效且易于学习的系统环境。
+NullPotOS is a UNIX like operating system, it is UEFI and X86_64 architecture.
 
 --------------------------------
 
-## 特性
+## Project status
 
-###### 引导
+##### Bootloader
 
-- [X] Bootloader(UEFI)
+- [X] UEFI
+- [X] UEFI Memory Map
+- [X] UEFI File System Protocol
+- [X] UEFI Graphics Output Protocol
 
-###### 内核
+##### Kernel
 
-- [X] GDT(全局描述符表)
-- [X] printk(格式化输出)
-- [X] 内存管理 (开发了一半)
-- [X] BMP图像绘制
+- [X] Uefi Init
+- [X] Uefi Graphics Output Protocol
+- [X] Format output
+- [X] Bmp output
+- [X] A20
+- [X] GDT
+- [ ] TSS
+- [ ] IDT
 
-###### 驱动
+## Build and run NullPotOS Project
 
-- [X] FIFO(先进先出)
-- [X] Deep(板载蜂鸣器)
-- [X] CMOS(实时时钟)
-- [X] ISA(总线)
-- [X] 串口输出
-- [X] UEFI Gop(图形输出)
+#### Get ready
 
-###### 硬件抽象层
+- Windows 10+ (Because use Windows development environment)
+- Git (Because use Git to clone the project)
+- Python 3.10+ (Because use Python to build the project)
+- SignTool (Because use SignTool to sign the project)
+- GCC (Because use GCC to build the Kernel)
+- MinGW (Because use MinGW to build the Bootloader)
+- QEMU (Because use QEMU to run the project)
+- GDB (Because use GDB to debug the project)
 
-- [X] IO
+#### My build configuration
 
-## 编译与构建
+- Intel(R) Xeon(R) CPU E5-2676 v3 @ 2.40GHz   2.40 GHz(12 cores and 24 threads)
+- 4 * 16GB DDR3
+- 1 * 1TB SSD
 
-### 必需工具
+- Windows 11 24H2 Pro
+- Python 3.12.7
+- GCC 13.2.0
+- MinGW 14.2.0
+- QEMU 9.1.0
+- GDB 14.2
 
-- Linux环境 (Windows用户请使用WSL2)
-- GCC 编译器
-- GNU Make
-- GDB 调试器
-- QEMU 模拟器
-- MinGW 交叉编译器
-
-### 推荐系统配置
-
-- 任意Linux发行版或Windows 10/11 + WSL2
-- 4GB及以上内存
-- 10GB可用磁盘空间
-
-## 快速开始
-
-### 获取源码
+#### Start
 
 ``` Shell
 git clone https://github.com/LuoYuDian/NullPotOS.git
 cd NullPotOS
 ```
 
-### 编译系统
+Open your Git Bash
+
+#### Build
 
 ``` Shell
-make all -j $(nproc)
+mingw32-make all
+or
+make all
 ```
 
-### 运行系统
+If you want to clean the project, you can use the following command
 
 ``` Shell
-make run
+mingw32-make Clean
+or
+make Clean
 ```
 
-## 文档
+#### Run
 
-["Intel® 64 and IA-32 Architectures Software Developers' Manual-volumes-1-2abcd-3abcd-4"]("docs/Intel® 64 and IA-32 Architectures Software Developers' Manual-volumes-1-2abcd-3abcd-4")
+``` Shell
+mingw32-make Run
+or
+make Run
+```
 
-## 贡献
+Of course, you can also boot it on a real machine.
 
-欢迎提交Issue和Pull Request！
+###### Tip:
 
-## 许可证
+The premise is that you have a USB flash drive with a Fat32 file system and a computer with Uefi firmware
 
-本项目采用 [MIT LICENSE](https://github.com/LuoYuDian/NullPotOS/blob/main/LICENSE) 开源许可证。
+## Project License
 
-## 开发者
+NullPotOS is licensed under the [MIT LISENSE](LICENSE.md) -You should see the LICENSE file for more details
 
-[LuoYuDian](https://github.com/LuoYuDian)
+## Project Developer
 
-[MaxSinoh](https://github.com/MaxSinoh)
+[LuoYuDian](https://github.com/LuoYuDian) - Project Founder
+
+[MaxSinoh](https://github.com/MaxSinoh) - Project Developer and Contributor
