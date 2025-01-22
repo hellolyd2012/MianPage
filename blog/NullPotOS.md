@@ -95,7 +95,7 @@ The premise is that you have a USB flash drive with a Fat32 file system and a co
 
 ## Project License
 
-NullPotOS is licensed under the [MIT LISENSE](LICENSE.md) -You should see the LICENSE file for more details
+NullPotOS is licensed under the [MIT LISENSE](https://github.com/LuoYuDian/NullPotOS/blob/main/LICENSE.md) -You should see the LICENSE file for more details
 
 ## Project Developer
 
